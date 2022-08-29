@@ -33,6 +33,39 @@ def initButtons():
     p22.irq(startTimer, Pin.IRQ_FALLING)
 
 
+# adds a minute to setTime & currentTime when gpio 20 is pressed
+def addOne(pin):
+    global setTime
+    global currentTime
+    
+    if setTime < 10:
+        setTime += 1
+        currentTime = setTime
+        print("Timer set for %d minutes." % setTime)
+        updateLeds()
+    else:
+        setTime = 10
+        currentTime = setTime
+        print("Timer set for %d minutes." % setTime)
+        updateLeds()
+    
+
+# adds a minute to setTime & currentTime when gpio 21 is pressed
+def subOne(pin):
+    global setTime
+    global currentTime
+    
+    if setTime > 1:
+        setTime -= 1
+        currentTime = setTime
+        print("Timer set for %d minutes." % setTime)
+        updateLeds()
+    else:
+        setTime = 1
+        currentTime = setTime
+        print("Timer set for %d minutes." % setTime)
+        updateLeds()
+
 # running program
 
 initLeds()
