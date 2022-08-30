@@ -87,7 +87,7 @@ def startTimer(pin):
         minCountdown.init(mode = Timer.PERIODIC, period = gymTimerPeriod, callback = countDown)
         blinkLed.init(mode = Timer.PERIODIC, period = blinkLedPeriod, callback = blinkingLed)
     else:
-        print("Timer reset...")
+        print("Timer reset.")
         resetTimer()
 
 
@@ -120,6 +120,51 @@ def blinkingLed(pin):
     onBoardLed.toggle()
 
 
+# updates the LEDs to display the minutes remaining
+def updateLeds():
+    global currentTime
+    
+    for i in range(currentTime):
+        Pin(i).value(1)
+    
+    for i in range(currentTime, 11):
+        Pin(i).value(0)
+
+
+# resets timer parameters
+def resetTimer():
+    global setTime
+    global currentTime
+    global onBoardLed
+    global timerState
+    global minCountdown
+    global blinkLed
+    
+    setTime = 5
+    currentTime = 5
+    timerState = False
+    minCountdown.deinit()
+    blinkLed.deinit()
+    # onBoardLed.value(0)
+    updateLeds()
+    
+
+# turn on beepingPWM
+def beepOn():
+    global beepPWM
+    global beepFreq
+    global beepDutyCycle
+    
+    beepPWM = PWM(soundPin)
+    beepPWM.freq(beepFreq)
+    beepPWM.duty_u16(beepDutyCycle)
+
+
+# turn off beepingPWM
+def beepOff():
+    global beepPWM
+    
+    beepPWM.deinit()
 
 
 # running program
