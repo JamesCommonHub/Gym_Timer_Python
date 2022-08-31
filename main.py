@@ -14,7 +14,7 @@ beepDutyCycle = 32768
 
 minCountdown = Timer()
 blinkLed = Timer()
-gymTimerPeriod = 3000 # one minute = 60000
+gymTimerPeriod = 60000 # one minute = 60000
 blinkLedPeriod = 500
 
 timerState = False
