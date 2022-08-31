@@ -2,7 +2,7 @@
 
 Raspberry Pi Pico DIY gym timer using Micro Python.  Code is written to work with the Pico along side feature-packed Maker board.
 
-![Maker Pi Pico Diagram](hhttps://github.com/JamesCommonHub/Gym_Timer_Python/blob/main/img/MakerPiPicoDiagram.png)
+![Maker Pi Pico Diagram](/img/MakerPiPicoDiagram.png)
 
 
 ## Instructions
